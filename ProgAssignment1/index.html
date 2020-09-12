@@ -12,12 +12,12 @@
     <h1>Too Much Food Checker</h1>
     <div ng-controller='LunchCheckController'>
 
-        <input type="text" ng-model="food"
+        <input type="text" ng-model="food" placeholder="Enter all the food you ate"
         ng-style="{'borderColor':fontColor}">
 
         <button ng-click="checkIfTooMuch()">Check If too Much</button>
         <br>
-        
+
         <div ng-style="{'color': fontColor}">
            {{validationMessage}}
         </div>
