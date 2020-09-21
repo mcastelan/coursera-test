@@ -37,12 +37,12 @@
       <li ng-repeat="item in wishList.items">
         Buy {{ item.quantity }} {{ item.name }}
         <button class="btn btn-default" ng-click="wishList.removeItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-        <!-- <button ng-click="list.removeItem($index);">Remove Item</button> -->
+       
       </li>
       
      </ol> 
      <div class="emptyMessage" ng-if="wishList.items.length===0">Everything is bought!</div>
-     <!-- <div class="emptyMessage">Everything is bought!</div> -->
+    
     </div>
 
     <!-- Already Bought List -->
@@ -52,7 +52,7 @@
        <li ng-repeat="item in boughtList.items">Bought {{ item.quantity }} {{ item.name }}</li>
      </ol>
      <div ng-if="boughtList.items.length === 0" class="emptyMessage">Nothing bought yet.</div>
-     <!-- <div class="emptyMessage">Nothing bought yet.</div> -->
+    
     </div>
   </div>
 </div>
