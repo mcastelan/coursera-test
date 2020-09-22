@@ -28,20 +28,15 @@ var shoppingList1 = [
     angular.module('ShoppingListCheckOff', [])
     .controller('ToBuyController', ToBuyController)
     .controller('AlreadyBoughtController',AlreadyBoughtController)
-    .provider('ShoppingList', ShoppingListProvider)
+    .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
     
-    .config(Config);
     
-    Config.$inject = ['ShoppingListProvider'];
-    function Config(ShoppingListProvider) {
-      ShoppingListProvider.defaults.maxItems = 5;
-    }
     
-    ToBuyController.$inject = ['ShoppingList'];
-    function ToBuyController(ShoppingList) {
+    ToBuyController.$inject = ['ShoppingListCheckOffService'];
+    function ToBuyController(ShoppingListCheckOffService) {
       var list = this;
     
-      list.items = ShoppingList.getItems();
+      list.items = ShoppingListCheckOffService.getItems();
     
       list.itemName = "";
       list.itemQuantity = "";
@@ -50,21 +45,21 @@ var shoppingList1 = [
     
       list.removeItem = function (itemIndex) {
           
-        ShoppingList.removeItem(itemIndex);
+        ShoppingListCheckOffService.removeItem(itemIndex);
          
       };
     }
     
-    AlreadyBoughtController.$inject=['ShoppingList']
-    function AlreadyBoughtController(ShoppingList)
+    AlreadyBoughtController.$inject=['ShoppingListCheckOffService']
+    function AlreadyBoughtController(ShoppingListCheckOffService)
     {
        var list = this;
-        list.items = ShoppingList.getBoughtItems();
+        list.items = ShoppingListCheckOffService.getBoughtItems();
         
     }
     
     // If not specified, maxItems assumed unlimited
-    function ShoppingListCheckOffService(maxItems) {
+    function ShoppingListCheckOffService() {
       var service = this;
     
       // List of shopping items
@@ -90,19 +85,19 @@ var shoppingList1 = [
     }
     
     
-    function ShoppingListProvider() {
-      var provider = this;
+    // function ShoppingListProvider() {
+    //   var provider = this;
     
-      provider.defaults = {
-        maxItems: 100
-      };
+    //   provider.defaults = {
+    //     maxItems: 100
+    //   };
     
-      provider.$get = function () {
-        var shoppingList = new ShoppingListCheckOffService(provider.defaults.maxItems);
+    //   provider.$get = function () {
+    //     var shoppingList = new ShoppingListCheckOffService(provider.defaults.maxItems);
     
-        return shoppingList;
-      };
-    }
+    //     return shoppingList;
+    //   };
+    // }
     
     })();
     
