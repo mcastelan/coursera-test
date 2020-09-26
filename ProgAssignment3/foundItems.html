@@ -1,0 +1,49 @@
+<div style="overflow-x:auto;">
+
+<h3 style="text-align: center; color:blue;"> Narrow List - {{list.items.length}} results</h3> 
+
+<table >
+    <thead>
+        <tr>
+            <th>
+                Short Name
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in list.items">
+            <th>
+                {{ item.short_name }}
+            </th>
+            <th>
+                {{ item.name }}
+            </th>
+            <th>
+                {{item.description}}
+            </th>
+            <th>
+                <button ng-click="list.onRemove({index: $index});">Don't want this one!</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <ol>
+  <li ng-repeat="item in list.items">
+    {{ item.short_name }} - {{ item.name }} - {{item.description}}
+    <button ng-click="list.onRemove({index: $index});">Don't want this one!</button>
+  </li>
+</ol> -->
+<!-- <div class="emptyMessage" ng-if="list.items.length===0">Nothing Found!</div> -->
+<!-- <div class="error">Nothing found!</div> -->
+    
+</div>

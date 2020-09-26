@@ -85,19 +85,7 @@ var shoppingList1 = [
     }
     
     
-    // function ShoppingListProvider() {
-    //   var provider = this;
-    
-    //   provider.defaults = {
-    //     maxItems: 100
-    //   };
-    
-    //   provider.$get = function () {
-    //     var shoppingList = new ShoppingListCheckOffService(provider.defaults.maxItems);
-    
-    //     return shoppingList;
-    //   };
-    // }
+  
     
     })();
     
