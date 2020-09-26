@@ -10,26 +10,26 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
 <body ng-app="NarrowItDownApp">
-  <div  ng-controller="NarrowItDownController as narrowButton">
+  <div  ng-controller="NarrowItDownController as narrowList">
     <div class="container">
       <h1>Narrow Down Your Chinese Menu Choice</h1>
   
       <div class="form-group">
-        <input type="text" placeholder="search term" class="form-control" ng-model="narrowButton.searchKeyWord">
+        <input type="text" placeholder="search term" class="form-control" ng-model="narrowList.searchKeyWord">
       </div>
       <div class="form-group narrow-button" >
-        <button class="btn btn-primary" ng-click="narrowButton.getMatchedMenuItems();">Narrow It Down For Me!</button>
+        <button class="btn btn-primary" ng-click="narrowList.getMatchedMenuItems();">Narrow It Down For Me!</button>
         <br>
       </div>
    
     </div>
     <!-- found-items should be implemented as a component -->
    
-    <found-items ng-if="narrowButton.found.length>0"
-    items="narrowButton.found"
-    title="{{narrowButton.title}}"
-    on-remove="narrowButton.removeItem(index)"></found-items>
-    <div style="color: green;font-size: large;font-weight: bold;" ng-if="narrowButton.found.length===0 && narrowButton.searched">Nothing Found!</div>
+    <found-items ng-if="narrowList.found.length>0"
+    items="narrowList.found"
+    title="{{narrowList.title}}"
+    on-remove="narrowList.removeItem(index)"></found-items>
+    <div style="color: green;font-size: large;font-weight: bold;" ng-if="narrowList.found.length===0 && narrowList.searched">Nothing Found!</div>
   </div>
   
 
