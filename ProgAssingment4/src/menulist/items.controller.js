@@ -12,7 +12,7 @@ function ItemsController(menuItemsResponse) {
   
   
   items.menuItems =[];
-  console.log("items for category ",menuItemsResponse.data);
+ 
    for(var i=0;i<menuItemsResponse.data.menu_items.length;i++){
   
       var item = {
