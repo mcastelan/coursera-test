@@ -14,7 +14,7 @@ function MenuItemExist($http, $q) {
            
             ngModel.$asyncValidators.menuItemExist = function(modelValue, viewValue) {
                
-                return $http.get('https://mcastelan-spacourse.herokuapp.com/menu_items/' +viewValue+'.json')
+                return $http.get('https://mcastelan-spacourse.herokuapp.com/menu_items/' +angular.uppercase(viewValue)+'.json')
                     .then(
                      function(response) {
                            console.log(response);

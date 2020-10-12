@@ -25,6 +25,7 @@ function MenuService($http, ApiPath) {
 
   service.setUser =function(user){
     service.userModel = user;
+    service.userModel.option= angular.uppercase(service.userModel.option);
     service.userRegistered = true;
      return "something";
      
