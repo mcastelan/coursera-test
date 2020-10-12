@@ -1,0 +1,78 @@
+<div class="container">
+    <h2 id="login-categories-title" class="text-center">Login</h2>
+    <div class="text-center">
+      Register
+    </div>
+    <div>
+    
+        <fieldset >
+        
+        <form name='regForm' novalidate>
+            <label>First Name:</label>
+          <input type="text" name="firstname" placeholder="Enter a first name"
+            ng-model="loginCtrl.user.firstname"
+            required 
+            ng-maxlength="20">
+           
+            <span ng-if="(regForm.firstname.$error.maxlength || regForm.firstname.$error.required)  && regForm.firstname.$touched">
+                First name must be introduced and must not be longer than 20 characters
+              </span>
+                         
+            <br>  <br>
+            <label>Last Name:</label>
+            <input type="text" name="lastname" placeholder="Enter a last name"
+            ng-model="loginCtrl.user.lastname"
+            required
+            
+            ng-maxlength="20">
+                
+            <span ng-if="(regForm.lastname.$error.maxlength || regForm.lastname.$error.required)  && regForm.lastname.$touched">
+              Last name must be introduced and must not be longer than 20 characters
+            </span>
+            <br>  <br>
+            <label>Email:</label>
+          <input type="email" name="email" placeholder="Enter a Email"
+            ng-model="loginCtrl.user.email"
+            required>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+            <br>  <br>
+            <label>Phone:</label>
+          <input type="text" name="phone" placeholder="Phone ###-###-####"
+            ng-model="loginCtrl.user.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+            <br>  <br>
+            <label>Menu Item Short Name:</label>
+            <input type="text" name="menuItem" placeholder="menu item short name"
+            ng-model="loginCtrl.user.option" required
+            menu-item-exist>
+            <span ng-if="regForm.menuItem.$pending">
+                Checking menu Item...
+              </span>
+              <span ng-if="regForm.menuItem.$invalid && regForm.menuItem.$touched">
+                No such menu number exists
+              </span>
+          
+            <br>  <br>
+          <button
+            ng-disabled="regForm.$invalid || regForm.$pending"
+            ng-click="loginCtrl.submit()">Submit</button>
+  
+          
+        </form>
+        </fieldset>
+    </div>
+   
+    
+        <div id="info" ng-if="loginCtrl.completed" >
+            Your information has been saved
+        <br>
+        Option: {{loginCtrl.user.option}}
+      </div>
+      
+    
+  </div>

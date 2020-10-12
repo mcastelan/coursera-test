@@ -1,0 +1,30 @@
+<div id="info" ng-if="userinfoCtrl.userRegistered">
+    Username: {{ userinfoCtrl.user.firstname}} {{userinfoCtrl.user.lastname}} <br>
+    Email: {{ userinfoCtrl.user.email}} <br>
+    Phone: {{ userinfoCtrl.user.phone }}<br>
+    
+    
+</div>
+<div class="menu-item-tile col-md-6" ng-if="userinfoCtrl.userRegistered">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{userinfoCtrl.menuItem.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{userinfoCtrl.basePath}}/images/{{userinfoCtrl.menuItem.short_name}}.jpg" alt="{{userinfoCtrl.menuItem.name}}">
+      </div>
+      <div class="menu-item-price">{{userinfoCtrl.menuItem.price_small | currency}}<span> {{userinfoCtrl.menuItem.small_portion_name}}</span> {{userinfoCtrl.menuItem.price_large | currency}} <span>{{userinfoCtrl.menuItem.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{userinfoCtrl.menuItem.name}}</h3>
+      <p class="menu-item-details">{{userinfoCtrl.menuItem.description}}</p>
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div> 
+
+  <div  ng-if="!userinfoCtrl.userRegistered">
+    Not Signed Up Yet. Sign up Now!
+    <br>
+    
+  </div>
+ 
